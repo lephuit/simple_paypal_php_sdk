@@ -7,7 +7,6 @@ class PP_do_direct_pay extends PP_config
 	public $url = PP_config::WPP_NVP_ENDPOINT;
 	private $request = "";
 	public $required = array("VERSION", "IPADDRESS", "CREDITCARDTYPE", "ACCT", "EXPDATE", "CVV2", "FIRSTNAME", "LASTNAME", "STREET", "CITY", "STATE", "ZIP", "COUNTRYCODE", "AMT",);
-	public $error_fields = null;
 
 	function __construct() 
 	{
@@ -117,15 +116,11 @@ class PP_do_direct_pay extends PP_config
 	//Once the $this->result array is formed this will make the curl call and return the response
 	public function execute()
 	{
-		$required = $this->check_required();
-
-		if($required != false)
-		{
+		try{
+			$this->check_required();
 			return PP_config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
-		}
-		else
-		{
-			return $this->error_fields;
+		}catch(Exception $e){
+			echo "Error Message: ".$e->getMessage()."<br />File: ".$e->getFile()."<br />Line: ".$e->getLine();
 		}
 		
 	}
@@ -137,14 +132,8 @@ class PP_do_direct_pay extends PP_config
 		{
 			if (array_key_exists($key, $this->request) == false) 
 			{
-			    $this->error_fields["fields"][] = $key;
+			    throw new Exception($key."---- is a required field to process DoDirectPayment");
 			}
-		}
-
-		if($this->error_fields != null)
-		{
-			$this->error_fields["pre_pay_error"] = "You are missing some required fields. Please check your request.";
-			return false;
 		}
 		return true;
 	}
