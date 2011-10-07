@@ -16,6 +16,7 @@ class PP_do_direct_pay extends PP_config
 	   $this->request["METHOD"] = $this->method;
 	}
 
+// ---------- Required Parameters ----------------------------------------------------------------------- //
 	public function set_version($version)
 	{
 		$this->request["VERSION"] = $version;
@@ -28,12 +29,6 @@ class PP_do_direct_pay extends PP_config
 		return $this;
 	}
 
-	public function set_paymentaction($paymentaction = 'Sale')
-	{
-		$this->request["PAYMENTACTION"] = $paymentaction;
-		return $this;
-	}
-
 	public function set_creditcard($credit)
 	{
 		$this->request["CREDITCARDTYPE"] = $credit["creditcardtype"];
@@ -43,20 +38,23 @@ class PP_do_direct_pay extends PP_config
 		return $this;
 	}
 
-	public function set_name($name)
+	public function set_name($name) //Payer information fields. Email is not required
 	{
 		$this->request["FIRSTNAME"] = $name["first"];
 		$this->request["LASTNAME"] = $name["last"];
+		if(isset($name["email"])){ $this->request["EMAIL"] = $name["email"]; }
 		return $this;
 	}
 
 	public function set_address($address)
 	{
 		$this->request["STREET"] = $address["street"];
+		if(isset($address["street2"])){ $this->request["STREET2"] = $address["street2"]; }
 		$this->request["CITY"] = $address["city"];
 		$this->request["STATE"] = $address["state"];
 		$this->request["ZIP"] = $address["zip"];
 		$this->request["COUNTRYCODE"] = $address["countrycode"];
+		if(isset($address["shiptophonenum"])){ $this->request["SHIPTOPHONENUM"] = $address["shiptophonenum"]; }
 		return $this;
 	}
 
@@ -66,6 +64,57 @@ class PP_do_direct_pay extends PP_config
 		return $this;
 	}
 
+// ---------- Optional Parameters ----------------------------------------------------------------------- //
+	public function set_paymentaction($paymentaction = 'Sale')
+	{
+		$this->request["PAYMENTACTION"] = $paymentaction;
+		return $this;
+	}
+
+	public function set_returnfmfdetails($fmfdetails)
+	{
+		$this->request["RETURNFMFDETAILS"] = $fmfdetails;
+		return $this;
+	}
+
+	public function set_currencycode($currency)
+	{
+		$this->request["CURRENCYCODE"] = $currency;
+		return $this;
+	}
+
+	public function set_taxamt($tax)
+	{
+		$this->request["TAXAMT"] = $tax;
+		return $this;
+	}
+
+	public function set_desc($desc)
+	{
+		$this->request["DESC"] = $desc;
+		return $this;
+	}
+
+	public function set_custom($custom)
+	{
+		$this->request["CUSTOM"] = $custom;
+		return $this;
+	}
+
+	public function set_invnum($invnum)
+	{
+		$this->request["INVNUM"] = $invnum;
+		return $this;
+	}
+
+	public function set_notifyurl($notifyurl)
+	{
+		$this->request["NOTIFYURL"] = $notifyurl;
+		return $this;
+	}
+
+
+	//Once the $this->result array is formed this will make the curl call and return the response
 	public function execute()
 	{
 		$required = $this->check_required();
