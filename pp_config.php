@@ -1,7 +1,7 @@
 <?php
 include("curl.php");
 include("pp_do_direct_pay.php");
-//include("pp_get_balance.php");
+include("pp_get_balance.php");
 
 class PP_config
 {

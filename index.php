@@ -2,6 +2,8 @@
 include("pp_config.php");
 echo "API Testing<br />";
 
+
+/*Example of DoDirectPayment API Call
 $wpp = new PP_do_direct_pay();
 $result = $wpp
 			->set_version("60.0")
@@ -28,5 +30,10 @@ else
 	//You were able to connect to PayPal now just check the response
 	print_r($result);
 }
+*/
+
+$balance = new PP_get_balance();
+$result = $balance->set_version("60.0")->execute();
+print_r($result);
 
 ?>
