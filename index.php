@@ -32,6 +32,7 @@ else
 }
 */
 
+//This is an example of how to use the getBalance API
 $balance = new PP_get_balance();
 $result = $balance->set_version("60.0")->execute();
 print_r($result);
