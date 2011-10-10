@@ -1,6 +1,6 @@
 <?php
 
-class PP_do_direct_pay extends PP_config
+class PP_dodirectpayment extends PP_config
 {
 	public $method = "DoDirectPayment";
 	public $curl = "";
@@ -117,26 +117,15 @@ class PP_do_direct_pay extends PP_config
 	public function execute()
 	{
 		try{
-			$this->check_required();
+			PP_config::check_required($this->required, $this->request, "DoDirectPayment API");
 			return PP_config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
 		}catch(Exception $e){
-			echo "Error Message: ".$e->getMessage()."<br />File: ".$e->getFile()."<br />Line: ".$e->getLine();
+			echo "Error Message: ".$e->getMessage();
 		}
 		
 	}
 
-	//This is used to check to make sure all required fields are being entered
-	private function check_required()
-	{
-		foreach($this->required as $key)
-		{
-			if (array_key_exists($key, $this->request) == false) 
-			{
-			    throw new Exception($key."---- is a required field to process DoDirectPayment");
-			}
-		}
-		return true;
-	}
+	
 
 
 

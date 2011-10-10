@@ -1,7 +1,7 @@
 <?php
 include("curl.php");
-include("pp_do_direct_pay.php");
-include("pp_get_balance.php");
+include("pp_dodirectpayment.php");
+include("pp_getbalance.php");
 
 class PP_config
 {
@@ -14,6 +14,19 @@ class PP_config
 	{
 		$data = array("USER" => PP_config::USERNAME, "PWD" => PP_config::PWD, "SIGNATURE" => PP_config::SIGNATURE);
 		return $data;
+	}
+
+	//This is used to check to make sure all required fields are being entered
+	public static function check_required($required, $request, $title = "API request")
+	{
+		foreach($required as $key)
+		{
+			if (array_key_exists($key, $request) == false) 
+			{
+			    throw new Exception($key."---- is a required field to process this ".$title.".");
+			}
+		}
+		return true;
 	}
 
 	public static function deformat_nvp($nvpstr)
