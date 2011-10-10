@@ -1,7 +1,7 @@
 <?php
-include("curl.php");
-include("pp_dodirectpayment.php");
-include("pp_getbalance.php");
+include("Curl.php");
+include("PP_dodirectpayment.php");
+//include("pp_getbalance.php");
 
 class PP_config{
 	
@@ -52,4 +52,4 @@ class PP_config{
 	}
 }
 
-/* End of pp_config.php class */
+/* End of PP_config.php class */

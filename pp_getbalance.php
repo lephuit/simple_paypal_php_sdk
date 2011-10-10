@@ -1,7 +1,7 @@
 <?php
 
-class PP_getbalance extends PP_config
-{
+class PP_getbalance extends PP_config{
+
 	public $method = "GetBalance";
 	public $curl = "";
 	private $request = "";
