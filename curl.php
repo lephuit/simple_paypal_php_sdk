@@ -6,15 +6,17 @@
 
 class Curl {
 	
-	var $url = "";
-	var $headers = array(); //Headers are built in set_headers() and passed in execute()
-	var $post_data = "";
-	var $fields_string = "";
+	private $url = "";
+	private $pp_log = "";
+	private $headers = array(); //Headers are built in set_headers() and passed in execute()
+	private $post_data = "";
+	private $fields_string = "";
 	
 	//set_url() must be set by Codeigniter controller or models
 	public function set_url($url)
 	{
 		$this->url = $url;
+		$this->pp_log = new PP_log();
 		return $this;
 	}
 
@@ -22,14 +24,11 @@ class Curl {
 	{
 		$this->fields_string = null;
 		foreach($this->post_data as $key=>$value) { $this->fields_string .= $key.'='.$value.'&'; }
-		$this->fields_string = rtrim($this->fields_string,"&");
+		$this->fields_string = rtrim($this->fields_string,"&");		
 
-		/*
-		echo "<br />NVP Sring<br />";
-		print_r($this->fields_string);
-		echo "<br />";
-		*/
-		
+		//This will log request string
+		$this->pp_log->dump_request(array("url" => $this->url, "data" => $this->fields_string));
+
 		return $this;
 	}
 	

@@ -1,4 +1,6 @@
 <?php
+include("Database.php");
+include("PP_log.php");
 include("Curl.php");
 include("PP_dodirectpayment.php");
 //include("pp_getbalance.php");
@@ -9,6 +11,9 @@ class PP_config{
 	const PWD = "1317935235";
 	const SIGNATURE = "A0YRrGtEJVcl0-2UnaTpgloAIjq2AE9U-nqr1XFKEDanV4oPmqaPjrQn";
 	const WPP_NVP_ENDPOINT = "https://api-3t.sandbox.paypal.com/nvp";
+
+	const DUMP_REQUEST_TABLE = "pp_request";
+	const DUMP_RESPONSE_TABLE = "pp_response";
 
 	public static function wpp_nvp_auth()
 	{

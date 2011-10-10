@@ -1,18 +1,13 @@
 <?php
 class Database{
-    private $db_host = "";
-    private $db_user = "";
+    private $db_host = "localhost";
+    private $db_user = "root";
     private $db_password = "";
-    private $db_name = "";
+    private $db_name = "PP_log";
     private $con = "";
 
     function __construct()
     {
-       include("connection/db_config.php");
-       $this->db_host = $db_host;
-       $this->db_user = $db_user;
-       $this->db_password = $db_password;
-       $this->db_name = $db_name;
        $this->connect();
     }
 
