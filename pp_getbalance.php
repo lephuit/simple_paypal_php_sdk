@@ -9,7 +9,7 @@ class PP_getbalance extends PP_config
 
 	function __construct() 
 	{
-	   $this->curl = new curl();
+	   $this->curl = new Curl();
 	   $this->request = PP_config::wpp_nvp_auth();
 	   $this->request["METHOD"] = $this->method;
 	}

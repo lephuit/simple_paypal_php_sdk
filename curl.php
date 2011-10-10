@@ -4,7 +4,7 @@
  * @link	https://thebizztech@github.com/thebizztech/Simple-Codeigniter-Curl-PHP-Class.git
  */
 
-class curl {
+class Curl {
 	
 	var $url = "";
 	var $headers = array(); //Headers are built in set_headers() and passed in execute()

@@ -3,8 +3,8 @@ include("curl.php");
 include("pp_dodirectpayment.php");
 include("pp_getbalance.php");
 
-class PP_config
-{
+class PP_config{
+	
 	const USERNAME = "pro_1317935184_biz_api1.me.com";
 	const PWD = "1317935235";
 	const SIGNATURE = "A0YRrGtEJVcl0-2UnaTpgloAIjq2AE9U-nqr1XFKEDanV4oPmqaPjrQn";
@@ -23,7 +23,7 @@ class PP_config
 		{
 			if (array_key_exists($key, $request) == false) 
 			{
-			    throw new Exception($key."---- is a required field to process this ".$title.".");
+			    throw new Exception($key."---- is a required field to process ".$title.".");
 			}
 		}
 		return true;

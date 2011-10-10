@@ -22,11 +22,11 @@ echo "<br /><br />";
 
 
 
-
+/*
 //This is an example of how to use the getBalance API
 $balance = new PP_getbalance();
 $result = $balance->set_version("60.0")->execute();
 print_r($result);
-
+*/
 
 ?>

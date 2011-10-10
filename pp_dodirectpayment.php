@@ -1,7 +1,7 @@
 <?php
 
-class PP_dodirectpayment extends PP_config
-{
+class PP_dodirectpayment extends PP_config{
+
 	public $method = "DoDirectPayment";
 	public $curl = "";
 	public $url = PP_config::WPP_NVP_ENDPOINT;
@@ -10,7 +10,7 @@ class PP_dodirectpayment extends PP_config
 
 	function __construct() 
 	{
-	   $this->curl = new curl();
+	   $this->curl = new Curl();
 	   $this->request = PP_config::wpp_nvp_auth();
 	   $this->request["METHOD"] = $this->method;
 	}
@@ -117,7 +117,7 @@ class PP_dodirectpayment extends PP_config
 	public function execute()
 	{
 		try{
-			PP_config::check_required($this->required, $this->request, "DoDirectPayment API");
+			PP_config::check_required($this->required, $this->request, $this->method);
 			return PP_config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
 		}catch(Exception $e){
 			echo "Error Message: ".$e->getMessage();
