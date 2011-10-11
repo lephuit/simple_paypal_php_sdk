@@ -7,7 +7,7 @@
 class Curl {
 	
 	private $url = "";
-	private $pp_log = "";
+	private $log = "";
 	private $headers = array(); //Headers are built in set_headers() and passed in execute()
 	private $post_data = "";
 	private $fields_string = "";
@@ -16,7 +16,7 @@ class Curl {
 	public function set_url($url)
 	{
 		$this->url = $url;
-		$this->pp_log = new PP_log();
+		$this->log = new Log();
 		return $this;
 	}
 
@@ -27,7 +27,7 @@ class Curl {
 		$this->fields_string = rtrim($this->fields_string,"&");		
 
 		//This will log request string
-		$this->pp_log->dump_request(array("url" => $this->url, "data" => $this->fields_string));
+		$this->log->dump_request(array("url" => $this->url, "data" => $this->fields_string));
 
 		return $this;
 	}
@@ -79,4 +79,4 @@ class Curl {
 	}
 }
 
-/* End of file Curl.php */
+/* End of file curl.php */

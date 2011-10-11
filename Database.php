@@ -44,5 +44,4 @@ class Database{
 }
 
 
-
-?>
+/* End of database.php class */

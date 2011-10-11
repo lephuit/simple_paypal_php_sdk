@@ -1,19 +1,19 @@
 <?php
 
-class PP_dodirectpayment extends PP_config{
+class DoDirectPayment extends Config{
 
 	public $method = "DoDirectPayment";
-	private $pp_log = "";
+	private $log = "";
 	public $curl = "";
-	public $url = PP_config::WPP_NVP_ENDPOINT;
+	public $url = Config::WPP_NVP_ENDPOINT;
 	private $request = "";
 	public $required = array("VERSION", "IPADDRESS", "CREDITCARDTYPE", "ACCT", "EXPDATE", "CVV2", "FIRSTNAME", "LASTNAME", "STREET", "CITY", "STATE", "ZIP", "COUNTRYCODE", "AMT",);
 
 	function __construct() 
 	{
 	   $this->curl = new Curl();
-	   $this->pp_log = new PP_log();
-	   $this->request = PP_config::wpp_nvp_auth();
+	   $this->log = new Log();
+	   $this->request = Config::wpp_nvp_auth();
 	   $this->request["METHOD"] = $this->method;
 	}
 
@@ -119,11 +119,11 @@ class PP_dodirectpayment extends PP_config{
 	public function execute()
 	{
 		try{
-			PP_config::check_required($this->required, $this->request, $this->method);
+			Config::check_required($this->required, $this->request, $this->method);
 
-			$response = PP_config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
+			$response = Config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
 			//this will log the outgoing request and incoming response
-			$this->pp_log->dump_response(array("data" => $response));
+			$this->log->dump_response(array("data" => $response));
 
 			return $response;
 
@@ -139,4 +139,4 @@ class PP_dodirectpayment extends PP_config{
 
 }
 
-/* End of PP_do_direct_pay.php class */
+/* End of dodirectpayment.php class */

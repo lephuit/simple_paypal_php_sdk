@@ -1,16 +1,16 @@
 <?php
 
-class PP_getbalance extends PP_config{
+class GetBalance extends Config{
 
 	public $method = "GetBalance";
 	public $curl = "";
 	private $request = "";
-	public $url = PP_config::WPP_NVP_ENDPOINT;
+	public $url = Config::WPP_NVP_ENDPOINT;
 
 	function __construct() 
 	{
 	   $this->curl = new Curl();
-	   $this->request = PP_config::wpp_nvp_auth();
+	   $this->request = Config::wpp_nvp_auth();
 	   $this->request["METHOD"] = $this->method;
 	}
 
@@ -30,8 +30,8 @@ class PP_getbalance extends PP_config{
 	//Once the $this->result array is formed this will make the curl call and return the response
 	public function execute()
 	{
-		return PP_config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
+		return Config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
 	}
 }
 
-/* End of pp_get_balance.php class */
+/* End of GetBalance.php class */

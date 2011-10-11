@@ -17,4 +17,4 @@ class Encrypt{
 	
 }
 
-/* End of Encrypt.php class */
+/* End of encrypt.php class */

@@ -2,7 +2,7 @@
 //API will return ACK code of (Success, SuccessWithWarning, or Failure)
 //This will be a class to dump the api string and response into a database
 
-class PP_log extends PP_config{
+class Log extends Config{
 
 	private $curl = "";
 	private $db = "";
@@ -23,16 +23,16 @@ class PP_log extends PP_config{
 
 	public function dump_request($array)
 	{
-		$this->dump(PP_config::DUMP_REQUEST_TABLE, $array);
+		$this->dump(Config::DUMP_REQUEST_TABLE, $array);
 		return true;
 	}
 
 	public function dump_response($array)
 	{
-		$this->dump(PP_config::DUMP_RESPONSE_TABLE, $array);
+		$this->dump(Config::DUMP_RESPONSE_TABLE, $array);
 		return true;
 	}
 	
 }
 
-/* End of PP_log.php class */
+/* End of log.php class */

@@ -1,11 +1,11 @@
 <?php
-include("Database.php");
-include("PP_log.php");
-include("Curl.php");
-include("PP_dodirectpayment.php");
-//include("pp_getbalance.php");
+include("database.php");
+include("log.php");
+include("curl.php");
+include("dodirectpayment.php");
+//include("getbalance.php");
 
-class PP_config{
+class Config{
 	
 	const USERNAME = "pro_1317935184_biz_api1.me.com";
 	const PWD = "1317935235";
@@ -17,7 +17,7 @@ class PP_config{
 
 	public static function wpp_nvp_auth()
 	{
-		$data = array("USER" => PP_config::USERNAME, "PWD" => PP_config::PWD, "SIGNATURE" => PP_config::SIGNATURE);
+		$data = array("USER" => Config::USERNAME, "PWD" => Config::PWD, "SIGNATURE" => Config::SIGNATURE);
 		return $data;
 	}
 
@@ -57,4 +57,4 @@ class PP_config{
 	}
 }
 
-/* End of PP_config.php class */
+/* End of config.php class */

@@ -1,9 +1,9 @@
 <?php
-include("PP_config.php");
+include("config.php");
 echo "API Testing<br />";
 
 
-$wpp = new PP_dodirectpayment();
+$wpp = new DoDirectPayment();
 $result = $wpp
 			->set_version("60.0")
 			->set_ip("192.168.0.1")
@@ -24,7 +24,7 @@ echo "<br /><br />";
 
 /*
 //This is an example of how to use the getBalance API
-$balance = new PP_getbalance();
+$balance = new GetBalance();
 $result = $balance->set_version("60.0")->execute();
 print_r($result);
 */
