@@ -1,7 +1,3 @@
-A very simple PHP SDK to use with PayPal Website Payments Pro.  More to come soon as the DoDirectPayment API is the only one that is functional with their Sandbox right now.
-
-For more code and information visit http://www.thebizztech.com
-
 # Unofficial PayPal PHP Object Oriented SDK by Jason
 
 I am building a simple PHP SDK to use with PayPal that takes advantage of many PHP 5.3 features such as static function calls. [*http://thebizztech.com*](http://thebizztech.com/) by [Jason Michels] (http://thebizztech.com/).
