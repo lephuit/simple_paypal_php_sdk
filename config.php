@@ -15,14 +15,14 @@ class Config{
 	const DUMP_REQUEST_TABLE = "pp_request";
 	const DUMP_RESPONSE_TABLE = "pp_response";
 
-	public static function wpp_nvp_auth()
+	public static function wppNVPAuth()
 	{
 		$data = array("USER" => Config::USERNAME, "PWD" => Config::PWD, "SIGNATURE" => Config::SIGNATURE);
 		return $data;
 	}
 
 	//This is used to check to make sure all required fields are being entered
-	public static function check_required($required, $request, $title = "API request")
+	public static function checkRequired($required, $request, $title = "API request")
 	{
 		foreach($required as $key)
 		{
@@ -34,7 +34,7 @@ class Config{
 		return true;
 	}
 
-	public static function deformat_nvp($nvpstr)
+	public static function deformatNVP($nvpstr)
 	{
 
 		$intial=0;

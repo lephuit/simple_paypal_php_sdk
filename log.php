@@ -18,16 +18,16 @@ class Log extends Config{
 	{
 		//serialize array and dump to database
 		$sql = "INSERT INTO ".$db_table." VALUES ('', '".serialize($array)."', FROM_UNIXTIME('".time()."'))";
-		$this->db->do_query($sql);
+		$this->db->doQuery($sql);
 	}
 
-	public function dump_request($array)
+	public function dumpRequest($array)
 	{
 		$this->dump(Config::DUMP_REQUEST_TABLE, $array);
 		return true;
 	}
 
-	public function dump_response($array)
+	public function dumpResponse($array)
 	{
 		$this->dump(Config::DUMP_RESPONSE_TABLE, $array);
 		return true;

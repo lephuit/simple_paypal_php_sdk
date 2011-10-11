@@ -13,27 +13,27 @@ class Curl {
 	private $fields_string = "";
 	
 	//set_url() must be set by Codeigniter controller or models
-	public function set_url($url)
+	public function setUrl($url)
 	{
 		$this->url = $url;
 		$this->log = new Log();
 		return $this;
 	}
 
-	public function build_post_string()
+	public function buildPostString()
 	{
 		$this->fields_string = null;
 		foreach($this->post_data as $key=>$value) { $this->fields_string .= $key.'='.$value.'&'; }
 		$this->fields_string = rtrim($this->fields_string,"&");		
 
 		//This will log request string
-		$this->log->dump_request(array("url" => $this->url, "data" => $this->fields_string));
+		$this->log->dumpRequest(array("url" => $this->url, "data" => $this->fields_string));
 
 		return $this;
 	}
 	
 	//Headers can be modified depending on what you need cURL to accomplish
-	private function set_headers($type = '')
+	private function setHeaders($type = '')
 	{
 		$this->headers = array(
 						CURLOPT_URL => $this->url,
@@ -46,7 +46,7 @@ class Curl {
 		if($type == 'post')
 		{
 			$this->headers[CURLOPT_POST] = TRUE;
-			$this->build_post_string();
+			$this->buildPostString();
 			$this->headers[CURLOPT_POSTFIELDS] = $this->fields_string;
 		}
 		return $this;
@@ -55,14 +55,14 @@ class Curl {
 	//Set the headers and process curl via a GET
     public function get()
     {
-		return $this->set_headers()->execute();
+		return $this->setHeaders()->execute();
     }
 	
 	//Set the headers and process curl via a POST
 	public function post($data)
     {
     	$this->post_data = $data;
-		return $this->set_headers('post')->execute();
+		return $this->setHeaders('post')->execute();
     }
 	
 	//Starts curl and sets headers and returns the data in a string

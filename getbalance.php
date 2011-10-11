@@ -10,18 +10,18 @@ class GetBalance extends Config{
 	function __construct() 
 	{
 	   $this->curl = new Curl();
-	   $this->request = Config::wpp_nvp_auth();
+	   $this->request = Config::wppNVPAuth();
 	   $this->request["METHOD"] = $this->method;
 	}
 
 // ---------- Required Parameters ----------------------------------------------------------------------- //
-	public function set_version($version)
+	public function setVersion($version)
 	{
 		$this->request["VERSION"] = $version;
 		return $this;
 	}
 // ---------- Optional Parameters ----------------------------------------------------------------------- //
-	public function set_currency($currency = 0) //If 0 returns primary currency, if 1 all currencies
+	public function setCurrency($currency = 0) //If 0 returns primary currency, if 1 all currencies
 	{
 		$this->request["RETURNALLCURRENCIES"] = $currency;
 		return $this;
@@ -30,8 +30,8 @@ class GetBalance extends Config{
 	//Once the $this->result array is formed this will make the curl call and return the response
 	public function execute()
 	{
-		return Config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
+		return Config::deformatNVP($this->curl->setUrl($this->url)->post($this->request));
 	}
 }
 
-/* End of GetBalance.php class */
+/* End of getbalance.php class */

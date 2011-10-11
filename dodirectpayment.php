@@ -13,24 +13,24 @@ class DoDirectPayment extends Config{
 	{
 	   $this->curl = new Curl();
 	   $this->log = new Log();
-	   $this->request = Config::wpp_nvp_auth();
+	   $this->request = Config::wppNVPAuth();
 	   $this->request["METHOD"] = $this->method;
 	}
 
 // ---------- Required Parameters ----------------------------------------------------------------------- //
-	public function set_version($version)
+	public function setVersion($version)
 	{
 		$this->request["VERSION"] = $version;
 		return $this;
 	}
 
-	public function set_ip($ip)
+	public function setIP($ip)
 	{
 		$this->request["IPADDRESS"] = $ip;
 		return $this;
 	}
 
-	public function set_creditcard($credit)
+	public function setCreditCard($credit)
 	{
 		$this->request["CREDITCARDTYPE"] = $credit["creditcardtype"];
 		$this->request["ACCT"] = $credit["acct"];
@@ -39,7 +39,7 @@ class DoDirectPayment extends Config{
 		return $this;
 	}
 
-	public function set_name($name) //Payer information fields. Email is not required
+	public function setName($name) //Payer information fields. Email is not required
 	{
 		$this->request["FIRSTNAME"] = $name["first"];
 		$this->request["LASTNAME"] = $name["last"];
@@ -47,7 +47,7 @@ class DoDirectPayment extends Config{
 		return $this;
 	}
 
-	public function set_address($address)
+	public function setAddress($address)
 	{
 		$this->request["STREET"] = $address["street"];
 		if(isset($address["street2"])){ $this->request["STREET2"] = $address["street2"]; }
@@ -59,56 +59,56 @@ class DoDirectPayment extends Config{
 		return $this;
 	}
 
-	public function set_amt($amt)
+	public function setAmt($amt)
 	{
 		$this->request["AMT"] = $amt;
 		return $this;
 	}
 
 // ---------- Optional Parameters ----------------------------------------------------------------------- //
-	public function set_paymentaction($paymentaction = 'Sale')
+	public function setPaymentAction($paymentaction = 'Sale')
 	{
 		$this->request["PAYMENTACTION"] = $paymentaction;
 		return $this;
 	}
 
-	public function set_returnfmfdetails($fmfdetails)
+	public function setReturnFMFDetails($fmfdetails)
 	{
 		$this->request["RETURNFMFDETAILS"] = $fmfdetails;
 		return $this;
 	}
 
-	public function set_currencycode($currency)
+	public function setCurrencyCode($currency)
 	{
 		$this->request["CURRENCYCODE"] = $currency;
 		return $this;
 	}
 
-	public function set_taxamt($tax)
+	public function setTaxAmt($tax)
 	{
 		$this->request["TAXAMT"] = $tax;
 		return $this;
 	}
 
-	public function set_desc($desc)
+	public function setDesc($desc)
 	{
 		$this->request["DESC"] = $desc;
 		return $this;
 	}
 
-	public function set_custom($custom)
+	public function setCustom($custom)
 	{
 		$this->request["CUSTOM"] = $custom;
 		return $this;
 	}
 
-	public function set_invnum($invnum)
+	public function setInvNum($invnum)
 	{
 		$this->request["INVNUM"] = $invnum;
 		return $this;
 	}
 
-	public function set_notifyurl($notifyurl)
+	public function setNotifyURL($notifyurl)
 	{
 		$this->request["NOTIFYURL"] = $notifyurl;
 		return $this;
@@ -119,11 +119,11 @@ class DoDirectPayment extends Config{
 	public function execute()
 	{
 		try{
-			Config::check_required($this->required, $this->request, $this->method);
+			Config::checkRequired($this->required, $this->request, $this->method);
 
-			$response = Config::deformat_nvp($this->curl->set_url($this->url)->post($this->request));
+			$response = Config::deformatNVP($this->curl->setUrl($this->url)->post($this->request));
 			//this will log the outgoing request and incoming response
-			$this->log->dump_response(array("data" => $response));
+			$this->log->dumpResponse(array("data" => $response));
 
 			return $response;
 
