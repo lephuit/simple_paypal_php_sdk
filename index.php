@@ -29,4 +29,5 @@ $result = $balance->setVersion("60.0")->execute();
 print_r($result);
 */
 
-?>
+
+/* End of index.php */
