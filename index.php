@@ -2,7 +2,7 @@
 include("config.php");
 echo "API Testing<br />";
 
-
+/*
 $wpp = new DoDirectPayment();
 $result = $wpp
 			->setVersion("60.0")
@@ -17,17 +17,18 @@ $result = $wpp
 print_r($result);
 
 echo "<br /><br />";
+*/
+echo Config::WPP_NVP_ENDPOINT;
 
 
 
 
-
-
+/*
 //This is an example of how to use the getBalance API
 $balance = new GetBalance();
 $result = $balance->setVersion("60.0")->execute();
 print_r($result);
-
+*/
 
 
 /* End of index.php */

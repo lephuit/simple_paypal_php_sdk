@@ -3,7 +3,7 @@
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
  * @package    JasonPayPalSDK
- * @version    .1
+ * @version    1.0
  * @author     Jason Michels
  * @copyright  2010 - 2011 TheBizzTech LLC
  * @link       http://thebizztech.com
@@ -22,15 +22,24 @@ include("getbalance.php");
 
 class Config{
 	
+	const ENVIRONMENT = "Sandbox";
+
+	//Set API credentials from your PayPal account here
 	const USERNAME = "pro_1317935184_biz_api1.me.com";
 	const PWD = "1317935235";
 	const SIGNATURE = "A0YRrGtEJVcl0-2UnaTpgloAIjq2AE9U-nqr1XFKEDanV4oPmqaPjrQn";
-	const WPP_NVP_ENDPOINT = "https://api-3t.sandbox.paypal.com/nvp";
 
+	//This is the API Endpoint used. Set WPP_NVP_ENDPOINT to either sandbox or live
+	const WPP_NVP_SANDBOX_ENDPOINT = "https://api-3t.sandbox.paypal.com/nvp";
+	const WPP_NVP_LIVE_ENDPOINT = "https://api-3t.paypal.com/nvp";
+	const WPP_NVP_ENDPOINT = Config::WPP_NVP_SANDBOX_ENDPOINT;
+
+	//Logging features. Can turn the logs on and off and set the database tables here.
 	const DUMP_REQUEST_TABLE = "pp_request";
 	const LOG_REQUEST = 0;
 	const DUMP_RESPONSE_TABLE = "pp_response";
 	const LOG_RESPONSE = 0;
+
 
 	public static function wppNVPAuth()
 	{
