@@ -123,7 +123,7 @@ class DoDirectPayment extends Config{
 
 			$response = Config::deformatNVP($this->curl->setUrl($this->url)->post($this->request));
 			//this will log the outgoing request and incoming response
-			$this->log->dumpResponse(array("data" => $response));
+			//$this->log->dumpResponse(array("data" => $response));
 
 			return $response;
 
