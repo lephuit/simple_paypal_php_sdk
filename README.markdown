@@ -2,6 +2,8 @@
 
 I am building a simple PHP SDK to use with PayPal that takes advantage of many PHP 5.3 features such as static function calls. [*http://thebizztech.com*](http://thebizztech.com/) by [Jason Michels] (http://thebizztech.com/).
 
+In the config.php file that is included there are a number of settings you should set.  There is an API username, password, and signature you must get from your PayPal account and enter it here.  There are also two table names used for dumping the raw api request and responses, these are not necessary and only used for debugging purposes.
+
 Here are some examples of how to use these classes.
 
 Example of DoDirectPayment credit card processing API:
@@ -24,5 +26,3 @@ Example of DoDirectPayment credit card processing API:
 
 	print_r($result);
 	/* End of index.php */
-
-In the config.php file that is included there are a number of settings you should set.  There is an API username, password, and signature you must get from your PayPal account and enter it here.  There are also two table names used for dumping the raw api request and responses, these are not necessary and only used for debugging purposes.
