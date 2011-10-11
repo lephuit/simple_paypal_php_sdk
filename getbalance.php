@@ -1,6 +1,6 @@
 <?php
 
-class GetBalance extends Config{
+class GetBalance{
 
 	public $method = "GetBalance";
 	public $curl = "";

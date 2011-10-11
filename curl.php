@@ -27,7 +27,7 @@ class Curl {
 		$this->fields_string = rtrim($this->fields_string,"&");		
 
 		//This will log request string
-		//$this->log->dumpRequest(array("url" => $this->url, "data" => $this->fields_string));
+		if(Config::LOG_REQUEST){$this->log->dumpRequest(array("url" => $this->url, "data" => $this->fields_string));}
 
 		return $this;
 	}

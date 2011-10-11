@@ -11,7 +11,7 @@ $result = $wpp
 			->setCreditCard(array("creditcardtype" => "Visa", "acct" => "4683075410516684", "expdate" => "102015", "cvv2" => "123"))
 			->setName(array("first" => "Jason", "last" => "Michels"))
 			->setAddress(array("street" => "123", "city" => "Papillion", "state" => "NE", "zip" => "68046", "countrycode" => "US"))
-			->setAmt("3.60")
+			->setAmt("3.70")
 			->execute();
 
 print_r($result);
@@ -22,12 +22,12 @@ echo "<br /><br />";
 
 
 
-/*
+
 //This is an example of how to use the getBalance API
 $balance = new GetBalance();
 $result = $balance->setVersion("60.0")->execute();
 print_r($result);
-*/
+
 
 
 /* End of index.php */

@@ -18,7 +18,7 @@ include("database.php");
 include("log.php");
 include("curl.php");
 include("dodirectpayment.php");
-//include("getbalance.php");
+include("getbalance.php");
 
 class Config{
 	
@@ -28,7 +28,9 @@ class Config{
 	const WPP_NVP_ENDPOINT = "https://api-3t.sandbox.paypal.com/nvp";
 
 	const DUMP_REQUEST_TABLE = "pp_request";
+	const LOG_REQUEST = 0;
 	const DUMP_RESPONSE_TABLE = "pp_response";
+	const LOG_RESPONSE = 0;
 
 	public static function wppNVPAuth()
 	{

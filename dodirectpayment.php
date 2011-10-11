@@ -1,6 +1,6 @@
 <?php
 
-class DoDirectPayment extends Config{
+class DoDirectPayment{
 
 	public $method = "DoDirectPayment";
 	private $log = "";
@@ -122,8 +122,8 @@ class DoDirectPayment extends Config{
 			Config::checkRequired($this->required, $this->request, $this->method);
 
 			$response = Config::deformatNVP($this->curl->setUrl($this->url)->post($this->request));
-			//this will log the outgoing request and incoming response
-			//$this->log->dumpResponse(array("data" => $response));
+			//this will log the incoming response
+			if(Config::LOG_RESPONSE){$this->log->dumpResponse(array("data" => $response));}
 
 			return $response;
 
