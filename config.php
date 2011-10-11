@@ -1,4 +1,19 @@
 <?php
+/**
+ * Fuel is a fast, lightweight, community driven PHP5 framework.
+ *
+ * @package    JasonPayPalSDK
+ * @version    .1
+ * @author     Jason Michels
+ * @copyright  2010 - 2011 TheBizzTech LLC
+ * @link       http://thebizztech.com
+ * Naming convention: 
+ * Classes will be Pascal Case. Example: class DoDirectPayment
+ * Functions will be Camel Case: Example: function doQuery
+ * Variables will use underscores: Example: this_good_variable
+ * Constants same as variables except all upper case
+ */
+
 include("database.php");
 include("log.php");
 include("curl.php");

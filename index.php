@@ -11,7 +11,7 @@ $result = $wpp
 			->setCreditCard(array("creditcardtype" => "Visa", "acct" => "4683075410516684", "expdate" => "102015", "cvv2" => "123"))
 			->setName(array("first" => "Jason", "last" => "Michels"))
 			->setAddress(array("street" => "123", "city" => "Papillion", "state" => "NE", "zip" => "68046", "countrycode" => "US"))
-			->setAmt("3.50")
+			->setAmt("3.60")
 			->execute();
 
 print_r($result);
