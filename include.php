@@ -1,6 +1,6 @@
 <?php
 include("classes/Curl.php");
-include("classes/packages/paypal/PPConfig.php");
+include("classes/paypal/PPConfig.php");
 
 
 

@@ -1,6 +1,6 @@
 # Unofficial PayPal PHP Object Oriented SDK by [Jason Michels] (http://thebizztech.com/)
 
-I am building a simple PHP SDK to use with PayPal that takes advantage of many PHP 5.3 features.
+I am building a simple PHP SDK to use with PayPal.
 
 In the classes/packages/paypal/PPConfig.php file that is included there are a number of settings you should set.  There is an API username, password, and signature you must get from your PayPal account and enter it here.
 
