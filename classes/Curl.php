@@ -7,16 +7,13 @@
 class Curl {
 	
 	private $url = "";
-	private $log = "";
 	private $headers = array(); //Headers are built in set_headers() and passed in execute()
 	private $post_data = "";
 	private $fields_string = "";
 	
-	//set_url() must be set by Codeigniter controller or models
 	public function setUrl($url)
 	{
 		$this->url = $url;
-		$this->log = new Log();
 		return $this;
 	}
 
@@ -24,11 +21,7 @@ class Curl {
 	{
 		$this->fields_string = null;
 		foreach($this->post_data as $key=>$value) { $this->fields_string .= $key.'='.$value.'&'; }
-		$this->fields_string = rtrim($this->fields_string,"&");		
-
-		//This will log request string
-		if(Config::LOG_REQUEST){$this->log->dumpRequest(array("url" => $this->url, "data" => $this->fields_string));}
-
+		$this->fields_string = rtrim($this->fields_string,"&");
 		return $this;
 	}
 	
@@ -79,4 +72,4 @@ class Curl {
 	}
 }
 
-/* End of file curl.php */
+/* End of file Curl.php */

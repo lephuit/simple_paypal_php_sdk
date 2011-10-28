@@ -1,34 +1,19 @@
+<?php 
+$cmd = null;
+if($_GET){ $cmd = $_GET['cmd']; }
+
+//include("include.php");
+include("views/header.php");
+include("views/main/top_nav.php");
+?>
+
+<div class="container">
+
+<?php 
+include("views/welcome.php");
+?>
+
+</div>
 <?php
-include("config.php");
-echo "API Testing<br />";
-
-/*
-$wpp = new DoDirectPayment();
-$result = $wpp
-			->setVersion("60.0")
-			->setIP("192.168.0.1")
-			->setPaymentAction()
-			->setCreditCard(array("creditcardtype" => "Visa", "acct" => "4683075410516684", "expdate" => "102015", "cvv2" => "123"))
-			->setName(array("first" => "Jason", "last" => "Michels"))
-			->setAddress(array("street" => "123", "city" => "Papillion", "state" => "NE", "zip" => "68046", "countrycode" => "US"))
-			->setAmt("3.70")
-			->execute();
-
-print_r($result);
-
-echo "<br /><br />";
-*/
-echo Config::WPP_NVP_ENDPOINT;
-
-
-
-
-/*
-//This is an example of how to use the getBalance API
-$balance = new GetBalance();
-$result = $balance->setVersion("60.0")->execute();
-print_r($result);
-*/
-
-
-/* End of index.php */
+include("views/footer.php");
+//End of index.php

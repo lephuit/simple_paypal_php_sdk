@@ -1,142 +1,64 @@
-<?php
+<?php 
+$cmd = null;
+if($_GET){ $cmd = $_GET['cmd']; }
 
-class DoDirectPayment{
+include("include.php");
+include("views/header.php");
+include("views/main/top_nav.php");
 
-	public $method = "DoDirectPayment";
-	private $log = "";
-	public $curl = "";
-	public $url = Config::WPP_NVP_ENDPOINT;
-	private $request = "";
-	public $required = array("VERSION", "IPADDRESS", "CREDITCARDTYPE", "ACCT", "EXPDATE", "CVV2", "FIRSTNAME", "LASTNAME", "STREET", "CITY", "STATE", "ZIP", "COUNTRYCODE", "AMT",);
+/*
+Here is an example of how to run a DoDirectPayment API call like the one in views/wpp/ddp/hardcoded.php
+$wpp = new PPDoDirectPayment();
+$result = $wpp
+			->setVersion("80.0")
+			->setIP("192.168.0.1")
+			->setPaymentAction()
+			->setCreditCard(array(
+				"creditcardtype" 	=> "Visa", 
+				"acct" 				=> "4322713247967434", 
+				"expdate" 			=> "102013", 
+				"cvv2" 				=> "123"
+			))
+			->setName(array(
+				"first" => "Jason", 
+				"last" 	=> "Michels"
+			))
+			->setAddress(array(
+				"street" 		=> "123", 
+				"city" 			=> "Papillion", 
+				"state" 		=> "NE", 
+				"zip" 			=> "68046", 
+				"countrycode" 	=> "US"
+			))
+			->setAmt("3.70")
+			->execute();
+print_r($result);
+*/
+?>
 
-	function __construct() 
-	{
-	   $this->curl = new Curl();
-	   $this->log = new Log();
-	   $this->request = Config::wppNVPAuth();
-	   $this->request["METHOD"] = $this->method;
-	}
+<div class="container">
 
-// ---------- Required Parameters ----------------------------------------------------------------------- //
-	public function setVersion($version)
-	{
-		$this->request["VERSION"] = $version;
-		return $this;
-	}
+<?php 
+if($cmd == null){ include("views/wpp/ddp/start.php"); }
 
-	public function setIP($ip)
-	{
-		$this->request["IPADDRESS"] = $ip;
-		return $this;
-	}
-
-	public function setCreditCard($credit)
-	{
-		$this->request["CREDITCARDTYPE"] = $credit["creditcardtype"];
-		$this->request["ACCT"] = $credit["acct"];
-		$this->request["EXPDATE"] = $credit["expdate"];
-		$this->request["CVV2"] = $credit["cvv2"];
-		return $this;
-	}
-
-	public function setName($name) //Payer information fields. Email is not required
-	{
-		$this->request["FIRSTNAME"] = $name["first"];
-		$this->request["LASTNAME"] = $name["last"];
-		if(isset($name["email"])){ $this->request["EMAIL"] = $name["email"]; }
-		return $this;
-	}
-
-	public function setAddress($address)
-	{
-		$this->request["STREET"] = $address["street"];
-		if(isset($address["street2"])){ $this->request["STREET2"] = $address["street2"]; }
-		$this->request["CITY"] = $address["city"];
-		$this->request["STATE"] = $address["state"];
-		$this->request["ZIP"] = $address["zip"];
-		$this->request["COUNTRYCODE"] = $address["countrycode"];
-		if(isset($address["shiptophonenum"])){ $this->request["SHIPTOPHONENUM"] = $address["shiptophonenum"]; }
-		return $this;
-	}
-
-	public function setAmt($amt)
-	{
-		$this->request["AMT"] = $amt;
-		return $this;
-	}
-
-// ---------- Optional Parameters ----------------------------------------------------------------------- //
-	public function setPaymentAction($paymentaction = 'Sale')
-	{
-		$this->request["PAYMENTACTION"] = $paymentaction;
-		return $this;
-	}
-
-	public function setReturnFMFDetails($fmfdetails)
-	{
-		$this->request["RETURNFMFDETAILS"] = $fmfdetails;
-		return $this;
-	}
-
-	public function setCurrencyCode($currency)
-	{
-		$this->request["CURRENCYCODE"] = $currency;
-		return $this;
-	}
-
-	public function setTaxAmt($tax)
-	{
-		$this->request["TAXAMT"] = $tax;
-		return $this;
-	}
-
-	public function setDesc($desc)
-	{
-		$this->request["DESC"] = $desc;
-		return $this;
-	}
-
-	public function setCustom($custom)
-	{
-		$this->request["CUSTOM"] = $custom;
-		return $this;
-	}
-
-	public function setInvNum($invnum)
-	{
-		$this->request["INVNUM"] = $invnum;
-		return $this;
-	}
-
-	public function setNotifyURL($notifyurl)
-	{
-		$this->request["NOTIFYURL"] = $notifyurl;
-		return $this;
-	}
-
-
-	//Once the $this->result array is formed this will make the curl call and return the response
-	public function execute()
-	{
-		try{
-			Config::checkRequired($this->required, $this->request, $this->method);
-
-			$response = Config::deformatNVP($this->curl->setUrl($this->url)->post($this->request));
-			//this will log the incoming response
-			if(Config::LOG_RESPONSE){$this->log->dumpResponse(array("data" => $response));}
-
-			return $response;
-
-		}catch(Exception $e){
-			echo "Error Message: ".$e->getMessage();
-		}
-		
-	}
-
-	
-
-
-
+//These are for DoDirectPayment API
+if($cmd == "ddp_run_hardcode")
+{
+	include("views/wpp/ddp/hardcoded.php");
 }
 
-/* End of dodirectpayment.php class */
+if($cmd == "ddp_run_form")
+{
+	include("views/wpp/ddp/run_form.php");
+}
+// End DoDirectPayment API
+
+?>
+
+
+
+
+</div>
+<?php
+include("views/footer.php");
+//End of index.php
