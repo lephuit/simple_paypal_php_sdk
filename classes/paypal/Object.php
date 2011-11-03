@@ -1,12 +1,12 @@
 <?php
+namespace PayPal;
 /**
  *
  * @package    JasonPayPalSDK
  * @version    1.0
  * @author     Jason Michels
  */
-
-class PPObject extends PPConfig{
+class Object extends Config{
 
 	protected $url = "";
 	protected $request = array();
@@ -16,7 +16,7 @@ class PPObject extends PPConfig{
 	function __construct() 
 	{
 		parent::__construct();
-		$this->curl = new Curl();
+		$this->curl = new \Curl\Curl();
 	}
 
 	public function execute()
@@ -70,4 +70,4 @@ class PPObject extends PPConfig{
 	}
 }
 
-/* End of PPObject.php class */
+/* End of Object.php class */

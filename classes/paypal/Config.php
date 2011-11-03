@@ -1,4 +1,5 @@
 <?php
+namespace PayPal;
 /**
  *
  * @package    JasonPayPalSDK
@@ -12,13 +13,12 @@
  */
 
  //Here you will want to uncomment any API's you want to use
-include("PPObject.php");
-include("website_pro/PPPro.php");
-include("website_pro/PPDoDirectPayment.php");
+include("Object.php");
+include("Pro.php");
+include("DoDirectPayment.php");
 
 
-
-class PPConfig{
+class Config{
 	protected $environment = "sandbox";
 
 	protected $api_creds = array();
@@ -35,4 +35,4 @@ class PPConfig{
 	}
 }
 
-/* End of PPConfig.php class */
+/* End of Config.php class */

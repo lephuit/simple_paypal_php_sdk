@@ -1,4 +1,5 @@
 <?php
+namespace PayPal;
 /**
  *
  * @package    JasonPayPalSDK
@@ -6,8 +7,7 @@
  * @author     Jason Michels
  */
 
- 
-class PPDoDirectPayment extends PPPro{
+class DoDirectPayment extends Pro{
 
 	public $method = "DoDirectPayment";
 
@@ -112,4 +112,4 @@ class PPDoDirectPayment extends PPPro{
 
 }
 
-/* End of PPDoDirectPayment.php class */
+/* End of DoDirectPayment.php class */

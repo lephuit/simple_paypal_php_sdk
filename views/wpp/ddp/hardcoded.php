@@ -2,7 +2,7 @@
 
 <?php
 //This is used to run the hardcoded nvp dodirectpayment request
-$wpp = new PPDoDirectPayment();
+$wpp = new \PayPal\DoDirectPayment();
 $result = $wpp
 			->setVersion("80.0")
 			->setIP("192.168.0.1")

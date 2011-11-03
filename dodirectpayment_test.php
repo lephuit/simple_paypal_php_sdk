@@ -8,7 +8,7 @@ include("views/main/top_nav.php");
 
 /*
 Here is an example of how to run a DoDirectPayment API call like the one in views/wpp/ddp/hardcoded.php
-$wpp = new PPDoDirectPayment();
+$wpp = new \PayPal\DoDirectPayment();
 $result = $wpp
 			->setVersion("80.0")
 			->setIP("192.168.0.1")

@@ -13,7 +13,7 @@ $(function() {
 <div class="white" id="top_nav">
 	<h1 id="top_nav_message">Jason's PayPal Testing Code</h1>
 	<div>
-		<a href="dodirectpayment.php">DoDirectPayment</a>
+		<a href="dodirectpayment_test.php">DoDirectPayment</a>
 	</div>
 
 </div>

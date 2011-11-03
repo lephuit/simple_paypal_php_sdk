@@ -1,4 +1,5 @@
 <?php
+namespace Curl;
 /**
  * @author	Jason Michels
  * @link	https://thebizztech@github.com/thebizztech/Simple-Codeigniter-Curl-PHP-Class.git

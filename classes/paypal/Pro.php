@@ -1,4 +1,5 @@
 <?php
+namespace PayPal;
 /**
  *
  * @package    JasonPayPalSDK
@@ -6,8 +7,7 @@
  * @author     Jason Michels
  */
 
-
-class PPPro extends PPObject{
+class Pro extends Object{
 
 	function __construct() 
 	{
@@ -32,4 +32,4 @@ class PPPro extends PPObject{
 	}
 }
 
-/* End of PPPro.php class */
+/* End of Pro.php class */

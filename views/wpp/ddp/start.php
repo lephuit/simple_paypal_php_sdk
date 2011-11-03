@@ -29,7 +29,7 @@ $(function() {
 	<ul>
 		<li>
 			<h3>
-				<a href="dodirectpayment.php?cmd=ddp_run_hardcode" id="code_dodirectpayment_button">Process DoDirectPayment API Via HardCode</a>			
+				<a href="dodirectpayment_test.php?cmd=ddp_run_hardcode" id="code_dodirectpayment_button">Process DoDirectPayment API Via HardCode</a>			
 			</h3>
 		</li>
 		<li>
@@ -43,7 +43,7 @@ $(function() {
 
 <div id="basic_dodirectpayment_form">
 
-    <form action="dodirectpayment.php?cmd=ddp_run_form" method="post" accept-charset="utf-8">
+    <form action="dodirectpayment_test.php?cmd=ddp_run_form" method="post" accept-charset="utf-8">
     
     <fieldset>
     	<legend class="bold">Payment Information</legend>
