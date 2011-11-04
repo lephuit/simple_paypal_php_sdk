@@ -2,19 +2,15 @@
 
 if(is_array($result))
 {
-	if($result['ACK'] == "Success")
+	if(isset($result['ACK']))
 	{
-		$result_alert = "Congratulations On A Successfull Transaction for -- $".$result['AMT']." ";
-	}
-	else
-	{
-		$result_alert = "Ouch! Something needs to be looked at.Transaction was a ".$result['ACK']."";
-		if(isset($result['L_ERRORCODE0']))
+		if($result['ACK'] == "Success")
 		{
-			if($result['L_ERRORCODE0'] == "10001")
-			{ 
-				$result_error = "Another random 10001 Internal Error, of course."; 
-			}
+			$result_alert = "Congratulations On A Successfull Transaction!";
+		}
+		else
+		{
+			$result_alert = "Ouch! Something needs to be looked at.Transaction was a ".$result['ACK']."";
 		}
 	}
 }
@@ -24,9 +20,6 @@ else
 	$result_alert = "Ouch! Something needs to be looked at.";
 	$result_error = $result;
 }
-
-
-
 ?>
 
 <h1><?=$result_alert?></h1>
