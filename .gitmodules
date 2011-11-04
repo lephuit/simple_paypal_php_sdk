@@ -1,0 +1,3 @@
+[submodule "classes/paypal"]
+	path = classes/paypal
+	url = git@github.com:thebizztech/paypal-package-namespaced.git
