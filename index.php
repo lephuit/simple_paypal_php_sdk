@@ -20,8 +20,11 @@ include("views/main/top_nav.php");
 		<h2>Choose an API to run below.  When you are finished click the title at top of the page to be returned here.</h2>
 	</div>
 
-	<!-- Start DoDirectPayment Sections -->
-	<?php include("views/main/ddp_start.php"); ?>
+
+	<?php 
+	include("views/main/ddp_start.php");
+	include("views/main/adaptive_create_invoice_start.php");
+	 ?>
 
 
 
