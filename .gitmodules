@@ -10,3 +10,6 @@
 [submodule "classes\\payflow"]
 	path = classes\\payflow
 	url = git@github.com:thebizztech/payflow-package-namespaced.git
+[submodule "classes/logging"]
+	path = classes/logging
+	url = git@github.com:thebizztech/logging-php-namespace.git
