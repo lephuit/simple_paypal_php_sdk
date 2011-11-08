@@ -4,3 +4,6 @@
 [submodule "classes/curl"]
 	path = classes/curl
 	url = git@github.com:thebizztech/curl-namespaced.git
+[submodule "classes\\adaptivepaypal"]
+	path = classes\\adaptivepaypal
+	url = git@github.com:thebizztech/adaptive-paypal-namespaced.git
