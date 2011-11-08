@@ -2,6 +2,8 @@
 
 if(is_array($result))
 {
+	$result_alert = "Congratulations, you were able to connect to the service.";
+
 	if(isset($result['ACK']))
 	{
 		if($result['ACK'] == "Success")
