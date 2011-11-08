@@ -7,3 +7,6 @@
 [submodule "classes\\adaptivepaypal"]
 	path = classes\\adaptivepaypal
 	url = git@github.com:thebizztech/adaptive-paypal-namespaced.git
+[submodule "classes\\payflow"]
+	path = classes\\payflow
+	url = git@github.com:thebizztech/payflow-package-namespaced.git
