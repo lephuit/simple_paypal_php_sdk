@@ -39,8 +39,8 @@ include("views/main/top_nav.php");
 										)
 					->setPaymentTerms("Net10")
 					->execute();
-		
-		include("views/result.php");
+		print_r($result);
+		//include("views/result.php");
 		echo "</div>";
 	}
 
