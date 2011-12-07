@@ -2,6 +2,7 @@
 
 //Active billing agreement created 12/7/2011 
 //BILLINGAGREEMENTID ===> B-2A343947K8102981J
+//12/7/2011 === B-6U1370943C441603J
 
 $cmd = null;
 if($_GET){ $cmd = $_GET['cmd']; }
@@ -26,8 +27,8 @@ include("views/main/top_nav.php");
 		echo '<div class="section white">';
 		$doec = new \PayPal\DoExpressCheckoutPayment();
 		$result = $doec
-	                    ->setVersion("75.0")
-	                    ->setToken("EC-76G29939D1088022K")
+	                    ->setVersion()
+	                    ->setToken("EC-26A022779N349163S")
 	                    ->setPayerId("9Z34DN6WF2EZE")
 	                    ->setPaymentRequest(array(
 		                    array(

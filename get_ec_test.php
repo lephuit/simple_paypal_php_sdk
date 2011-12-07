@@ -22,8 +22,8 @@ include("views/main/top_nav.php");
 		echo '<div class="section white">';
 		$getec = new \PayPal\GetExpressCheckoutDetails();
 		$result = $getec
-	                    ->setVersion("75.0")
-	                    ->setToken("EC-76G29939D1088022K")
+	                    ->setVersion()
+	                    ->setToken("EC-26A022779N349163S")
 	                    ->execute();
 
 		include("views/result.php");

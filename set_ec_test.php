@@ -1,4 +1,28 @@
 <?php 
+/*
+This works for setting up a billing agreement to use with reference transactions.  Do an authorization all the way through express checkout and a billing agreement will be returned
+
+$result = $setEc
+	->setVersion()
+	->setReturnUrl("http://localhost/")
+	->setCancelUrl("http://localhost/")
+	->setPaymentRequest(array(
+	    array(
+	        "AMT" => "1.00", 
+	        "CURRENCYCODE" => "USD",
+	        "PAYMENTACTION" => "Authorization"
+	       	)
+		))
+		->setBillingAgreementDetails(array(
+	    array(
+	        "L_BILLINGTYPE" => "MerchantInitiatedBilling", 
+	        "L_BILLINGAGREEMENTDESCRIPTION" => "Test EC payment"
+	       	)
+		))
+	->execute();
+*/
+
+
 $cmd = null;
 if($_GET){ $cmd = $_GET['cmd']; }
 
@@ -22,7 +46,7 @@ include("views/main/top_nav.php");
 		echo '<div class="section white">';
 		$setEc = new \PayPal\SetExpressCheckout();
 		$result = $setEc
-						->setVersion("75.0")
+						->setVersion()
 	                    ->setReturnUrl("http://localhost/")
 	                    ->setCancelUrl("http://localhost/")
 	                    ->setPaymentRequest(array(
@@ -35,7 +59,7 @@ include("views/main/top_nav.php");
 	                   	->setBillingAgreementDetails(array(
 		                    array(
 			                    "L_BILLINGTYPE" => "MerchantInitiatedBilling", 
-			                    "L_BILLINGAGREEMENTDESCRIPTION" => "test EC payment"
+			                    "L_BILLINGAGREEMENTDESCRIPTION" => "Test EC payment"
 			                   	)
 	                   	))
 	                    ->execute();

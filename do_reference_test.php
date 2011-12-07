@@ -22,10 +22,10 @@ include("views/main/top_nav.php");
 		echo '<div class="section white">';
 		$doreference = new \PayPal\DoReferenceTransaction();
 		$result = $doreference
-	                    ->setVersion("75.0")
-	                    ->setReferenceId("B-2A343947K8102981J")
+	                    ->setVersion()
+	                    ->setReferenceId("B-6U1370943C441603J")
 	                    ->setPaymentAction()
-	                    ->setAmt("100.00")
+	                    ->setAmt("1000.00")
 	                    ->setCurrencyCode()
 	                    ->execute();
 
