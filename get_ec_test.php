@@ -23,7 +23,7 @@ include("views/main/top_nav.php");
 		$getec = new \PayPal\GetExpressCheckoutDetails();
 		$result = $getec
 	                    ->setVersion()
-	                    ->setToken("EC-3L1958095K519301S")
+	                    ->setToken("EC-1VD282742D495354V")
 	                    ->execute();
 
 		include("views/result.php");
