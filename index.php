@@ -29,6 +29,8 @@ include("views/main/top_nav.php");
 	include("views/main/get_ec_start.php");
 	include("views/main/do_ec_start.php");
 	include("views/main/do_reference_start.php");
+	include("views/main/create_recurring_profile_start.php");
+	include("views/main/ba_update_start.php");
 	?>
 
 

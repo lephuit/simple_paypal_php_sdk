@@ -13,17 +13,18 @@ include("views/main/top_nav.php");
 	<?php 
 	if($cmd == null)
 	{ 
-		include("views/main/get_ec_start.php");
+		include("views/main/ba_update_start.php");
 	}
 
-	//These are for GetExpressCheckoutDetails API
+	//These are for BillAgreementUpdate API
 	if($cmd == "run_hardcode")
 	{
 		echo '<div class="section white">';
-		$getec = new \PayPal\GetExpressCheckoutDetails();
+		$getec = new \PayPal\BillAgreementUpdate();
 		$result = $getec
 	                    ->setVersion()
-	                    ->setToken("EC-3L1958095K519301S")
+	                    ->setReferenceId("B-2A343947K8102981J")
+	                    ->setBillingAgreementStatus("Canceled")
 	                    ->execute();
 
 		include("views/result.php");

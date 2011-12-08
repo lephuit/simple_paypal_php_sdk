@@ -51,15 +51,15 @@ include("views/main/top_nav.php");
 	                    ->setCancelUrl("http://localhost/")
 	                    ->setPaymentRequest(array(
 		                    array(
-			                    "AMT" => "1.00", 
+			                    "AMT" => "0.00", 
 			                    "CURRENCYCODE" => "USD",
 			                    "PAYMENTACTION" => "Authorization"
 			                   	)
 	                   	))
 	                   	->setBillingAgreementDetails(array(
 		                    array(
-			                    "L_BILLINGTYPE" => "MerchantInitiatedBilling", 
-			                    "L_BILLINGAGREEMENTDESCRIPTION" => "Test EC payment"
+			                    "L_BILLINGTYPE" => "RecurringPayments", 
+			                    "L_BILLINGAGREEMENTDESCRIPTION" => "First Test EC payment"
 			                   	)
 	                   	))
 	                    ->execute();
