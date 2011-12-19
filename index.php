@@ -24,6 +24,7 @@ include("views/main/top_nav.php");
 	<?php 
 	include("views/main/ddp_start.php");
 	include("views/main/adaptive_create_invoice_start.php");
+	include("views/main/adaptive_payment_start.php");
 	include("views/main/pf_pro_start.php");
 	include("views/main/set_ec_start.php");
 	include("views/main/get_ec_start.php");
