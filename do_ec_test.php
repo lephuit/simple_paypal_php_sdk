@@ -29,13 +29,13 @@ include("views/main/top_nav.php");
 		$doec = new \PayPal\DoExpressCheckoutPayment();
 		$result = $doec
 	                    ->setVersion()
-	                    ->setToken("EC-1VD282742D495354V")
+	                    ->setToken("EC-0FS47324XM788840B")
 	                    ->setPayerId("9Z34DN6WF2EZE")
 	                    ->setPaymentRequest(array(
 		                    array(
-			                    "AMT" => "10.00", 
+			                    "AMT" => "1.00", 
 			                    "CURRENCYCODE" => "USD",
-			                    "PAYMENTACTION" => "Authorization"
+			                    "PAYMENTACTION" => "Sale"
 			                   	)
 	                   	))
 	                    ->execute();

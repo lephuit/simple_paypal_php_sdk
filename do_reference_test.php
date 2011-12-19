@@ -23,7 +23,7 @@ include("views/main/top_nav.php");
 		$doreference = new \PayPal\DoReferenceTransaction();
 		$result = $doreference
 	                    ->setVersion()
-	                    ->setReferenceId("B-6U1370943C441603J")
+	                    ->setReferenceId("B-8CM56650SV306605S")
 	                    ->setPaymentAction()
 	                    ->setAmt("1000.00")
 	                    ->setCurrencyCode()

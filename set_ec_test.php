@@ -46,17 +46,18 @@ include("views/main/top_nav.php");
 		echo '<div class="section white">';
 		$setEc = new \PayPal\SetExpressCheckout();
 		$result = $setEc
-						->setVersion()
-	                    ->setReturnUrl("http://localhost/")
-	                    ->setCancelUrl("http://localhost/")
-	                    ->setPaymentRequest(array(
-		                    array(
-			                    "AMT" => "10.00", 
-			                    "CURRENCYCODE" => "USD",
-			                    "PAYMENTACTION" => "Authorization"
-			                   	)
-	                   	))
-	                    ->execute();
+				->setVersion()
+				->setReturnUrl("http://localhost/")
+				->setCancelUrl("http://localhost/")
+				//->setReqBillingAddress(1)
+				->setPaymentRequest(array(
+				    array(
+				        "AMT" => "1.00", 
+				        "CURRENCYCODE" => "USD",
+				        "PAYMENTACTION" => "Sale"
+				       	)
+					))
+				->execute();
 
 		include("views/result.php");
 		echo "<br />";
