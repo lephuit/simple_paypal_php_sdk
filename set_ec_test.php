@@ -52,9 +52,9 @@ include("views/main/top_nav.php");
 				//->setReqBillingAddress(1)
 				->setPaymentRequest(array(
 				    array(
-				        "AMT" => "1.00", 
+				        "AMT" => "10.00", 
 				        "CURRENCYCODE" => "USD",
-				        "PAYMENTACTION" => "Sale"
+				        "PAYMENTACTION" => "Order"
 				       	)
 					))
 				->execute();
